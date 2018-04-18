@@ -8,8 +8,6 @@ def t_newline(t):
         pass
 
 
-
-
 tokens = (
         'LANGLE',       # <
         'LANGLESLASH',  # </
@@ -25,20 +23,9 @@ states = (
 )
 
 
-tokens = (
-        'LANGLE',       # <
-        'LANGLESLASH',  # </
-        'RANGLE',       # >
-        'SLASHRANGLE',  # />
-        'EQUAL',        # =
-        'STRING',       # "144"
-        'WORD',         # 'Welcome' in "Welcome to my webpage."
-)
-
-states = (
-        ('htmlcomment', 'exclusive'),   # <!--
-)
-
+def t_htmlcomment(t):
+    r'<!--'
+    t.lexer.begin('htmlcomment')
 
 def t_htmlcomment(t):
     r'<!--'
